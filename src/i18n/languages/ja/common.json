@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "title": "Members Admin",
+    "description": "これはメンバーアプリの実行です."
+  },
+  "headerButtons": {
+    "login": "今すぐ参加",
+    "createMatch": "ルーム作成"
+  },
+  "navbar": {
+    "games": "Games",
+    "docs": "Docs",
+    "contentCenter": "コンテンツセンター"
+  },
+  "sidebar": {
+    "users": "Users",
+    "games": "Games",
+    "category": "Categories",
+    "genres": "Genres",
+    "esports": "Esports",
+    "bets": "Bets",
+    "finace":"Finace",
+    "currency":"Currency",
+    "blockchain":"Blockchain",
+    "withdraw": "Withdraws",
+    "reports": "Report",
+    "distributes": "Distributes"
+  }
+}
