@@ -118,7 +118,9 @@ export const SideContent: React.FC<SideContentProps> = ({
           sx={{ backgroundColor: "#001629", height: "100vh", width: "100%" }}
         >
           <Toolbar>
-            <Image src={Logo} width={120} height={30} alt='logo'/>
+            {/* <Image src={Logo} width={120} height={30} alt='logo'/>
+             */}
+             <Typography className="text-white w-full text-center text-2xl font-bold pt-3  italic" variant="h4">Raise</Typography>
             <Typography
               sx={{
                 color: "white",

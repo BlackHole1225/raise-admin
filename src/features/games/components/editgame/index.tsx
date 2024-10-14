@@ -18,23 +18,15 @@ const EditGameForm = ({gameId}: EditGameFormPropsType) => {
 
   const { data: gameData, error: gameDataFetchError } = useSWR<
     BaseResponse<ResGameDataModel>
-  >(`/games/${gameId}`, fetcher);
+  >(`/campaign/${gameId}`, fetcher);
   
-  const { data: genresData, error: genresDataFetchError } = useSWR<
-    BaseResponse<GenreModel[]>
-  >(`/games/genres`, fetcher);
 
-  const { data: categoriesData, error: categoriesDataFetchError } = useSWR<
-    BaseResponse<CategoryModel[]>
-  >(`/games/categories`, fetcher);
 
   return(
     <>
-      {gameData && genresData && categoriesData && (
+      {gameData && (
         <EditGameFormContent
-          gameData={gameData.data}
-          genresData={genresData.data}
-          categoriesData={categoriesData.data}
+          gameData={gameData.data.campaign}
         />
       )}
     </>

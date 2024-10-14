@@ -14,8 +14,8 @@ export const loginWithEmailAndPassword = async (
   data: LoginModel
 ): Promise<{ data: BaseResponse<UserModel, TokenModel> }> => {
   const response = await client.post<BaseResponse<UserModel, TokenModel>>(
-    "/authentication/login",
-    data
+    "/login",
+    {...data}
   );
   return { data: response.data };
 };

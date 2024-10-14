@@ -13,6 +13,17 @@ export interface GameModel {
   game_categories: CategoryModel[];
 }
 
+export interface CampaignModel {
+  campaign_uuid: string;
+  title: string;
+  content: string;
+  countryId: string;
+  categoryId: string;
+  createrId: string;
+  file: string;
+  campaign_categories: CategoryModel[];
+  delete: boolean;
+}
 export interface GenreModel {
   genre_uuid: string;
   genre_name: string;
@@ -60,6 +71,9 @@ export interface GenreModel {
 export interface UpdateGameModel {
   name: string;
   description: string;
-  genres: string[] | any;
-  categories: string[] | any;
+}
+
+export interface LocationModel {
+  _id: string;
+  name: string;
 }

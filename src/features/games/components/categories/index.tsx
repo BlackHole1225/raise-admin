@@ -9,14 +9,14 @@ import { BaseResponse, PaginationMetaModel } from "@/types/base";
 export const GameCategory = () => {
   const { data: categoryData, error } = useSWR<
     BaseResponse<CategoryModel[], PaginationMetaModel>
-  >(`/games/categories`, fetcherWithTotal);
+  >(`/category`, fetcherWithTotal);
 
   if (error) return <div>Error fetching data</div>;
   if (!categoryData) return <div>Loading...</div>;
 
   return (
     <>
-      <CategoryContent data={categoryData.data} />
+      <CategoryContent data={categoryData.category} />
     </>
   );
 };

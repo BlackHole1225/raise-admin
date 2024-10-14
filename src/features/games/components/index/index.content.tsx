@@ -44,22 +44,9 @@ export const GamesContent = ({
       {" "}
       <Box>
         <Box sx={{ display: "flex", justifyContent: "space-between", my: 2 }}>
-          <Typography variant="h5" color={"black"}>Game</Typography>
+          <Typography variant="h5" color={"black"}>Campaigns</Typography>
           <Box>
-            <Link href={"/games/add"}>
-              <IconButton
-                aria-label="Add game"
-                sx={{
-                  backgroundColor: COLORS.blue,
-                  color: "#fff",
-                  "&:hover": {
-                    backgroundColor: COLORS.blue600,
-                  },
-                }}
-              >
-                <Add />
-              </IconButton>{" "}
-            </Link>
+           
           </Box>
         </Box>
         <TableContainer>
@@ -67,20 +54,20 @@ export const GamesContent = ({
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>title</TableCell>
                 <TableCell>Remove</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((item, i) => (
-                <TableRow hover={true} key={item.game_uuid}>
+                <TableRow hover={true} key={item._id}>
                   <TableCell> {(page - 1) * perPage + (i + 1)}</TableCell>
                   <TableCell>
                     <Link
-                      href={`/games/${item.game_uuid}`}
+                      href={`/campaign/${item._id}`}
                       style={{ color: "#24a4e2" }}
                     >
-                      {item.game_name}
+                      {item.title}
                     </Link>
                   </TableCell>
                   <TableCell>
@@ -88,7 +75,7 @@ export const GamesContent = ({
                       aria-label="delete"
                       sx={{ color: COLORS.red }}
                       size="small"
-                      onClick={() => onDelete(item.game_uuid)}
+                      onClick={() => onDelete(item._id)}
                     >
                       <DeleteIcon fontSize="small"/>
                     </IconButton>

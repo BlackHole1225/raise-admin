@@ -9,15 +9,16 @@ import { GameModel } from "../../types/games";
 import { deleteGame } from "../../api/game";
 import { useSnackbar } from "@/contexts/snackbarContext";
 import { Layout } from "@/features/layout/components";
+import useSWRMutation from "swr/mutation";
 
 export const Games = () => {
   const [page, setPage] = useState<number>(1);
   const [perPage, setPerPage] = useState<number>(10);
   const showSnackbar = useSnackbar();
-
   const { data: gameData, error } = useSWR<
     BaseResponse<GameModel[], PaginationMetaModel>
-  >(`/games?page=${page}&pagination[per_page]=${perPage}`, fetcherWithTotal);
+  >(`/campaign/search?page=${page}&pagination[per_page]=${perPage}`, fetcherWithTotal);
+const { trigger } = useSWRMutation(`/campaign/search?page=${page}&pagination[per_page]=${perPage}`, fetcherWithTotal);
 
   if (error) return <div>Error fetching data</div>;
   if (!gameData) return <div>Loading...</div>;
@@ -29,7 +30,7 @@ export const Games = () => {
         newMessage: "Game removed successfully.",
         newSeverity: "success",
       });
-      window.location.reload();
+      trigger();
     } else {
       showSnackbar({
         newMessage: "Game remove failed.",
@@ -44,7 +45,7 @@ export const Games = () => {
         data={gameData.data}
         page={page}
         perPage={perPage}
-        count={Math.ceil(gameData.meta.pagination.total / perPage)}
+        count={Math.ceil(gameData.pagination.totalPages / perPage)}
         onChangePagination={(page: number) => setPage(page)}
         onChangePerPage={(perPage: number) => setPerPage(perPage)}
         onDelete={onDeleteGame}

@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
   const showSnackbar = useSnackbar();
 
   useEffect(() => {
-    if (cookie) router.push("/esports-games/");
+    if (cookie) router.push("/games/");
     if (!cookie) setUser(undefined);
   }, [setUser, cookie, router]);
 
@@ -46,21 +46,23 @@ const SignIn: React.FC = () => {
     setIsLoading(true);
     try {
       const res = await loginWithEmailAndPassword(credentials);
-      const user = new User(res.data.data);
+      console.log(res.data);
+      const user = new User(res.data);
       setUser(user);
-      // setToken(res.data.meta.token);
-      setTokenCookie(res.data.meta.token, AUTHORIZATION_TOKEN_EXPIRATION);
+      setToken(res.data.token);
+      setTokenCookie(res.data.token, AUTHORIZATION_TOKEN_EXPIRATION);
 
-      router.push("/esports-games/");
+      router.push("/games/");
       showSnackbar({
         newMessage: "Login is success.",
         newSeverity: "success",
       });
     } catch (error: any) {
-      showSnackbar({
-        newMessage: error.response.data.message,
-        newSeverity: "error",
-      });
+      // showSnackbar({
+      //   newMessage: error.response.data.message,
+      //   newSeverity: "error",
+      // });
+      console.log(error);
     } finally {
       setIsLoading(false);
     }

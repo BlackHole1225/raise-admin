@@ -29,6 +29,6 @@ export const updateUserActivateStatus = async(
   id: number, 
   activate: boolean
 ): Promise<{ data: BaseResponse<UserModel> }> => {
-  const response = client.patch(`/users/${id}/activate`);
+  const response = client.patch(`/users/${id}/activate`, { is_actived: activate });
   return response;
 }

@@ -26,14 +26,16 @@ export const Users = () => {
     fetcherWithTotal);
   if (error) return <div>Error fetching data</div>;
   if (!u) return <div>Loading...</div>;
+  console.log(u);
+
   return (
     <>
       <UserContentComponent
-        data={u.data}
+        data={u.users}
         page={page}
         perPage={perPage}
         trigger={trigger}
-        count={Math.ceil(u.meta.pagination.total / perPage)}
+        count={Math.ceil(u.pagination.total / perPage)}
         onChangeSearchKeyword={(q: string) => setSearchkeyword(q)}
         onChangePagination={(page: number) => setPage(page)}
         onChangePerPage={(perPage: number) => setPerPage(perPage)}

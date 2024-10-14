@@ -13,21 +13,20 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 // import { loginWithEmailAndPassword } from "@/features/games/api/game";
 import useSWRMutation from "swr/mutation";
-
-import { CategoryParam } from "@/features/games/types/games";
-import { createCategory } from "@/features/games/api/game";
+import { LocationModel } from "@/features/games/types/games";
+import { createLocation } from "@/features/games/api/game";
 import { fetcherWithTotal } from "@/libs/axios";
 import { COLORS } from "@/utils/colors";
 import { ModalStyle } from "@/utils/constants";
-type CategoryDialogModalProps = {
+type LocationDialogModalProps = {
   openModal: boolean;
   setOpenModal: (flag: boolean) => void;
 };
 
-export const CategoryDialogModal = ({
+export const LocationDialogModal = ({
   openModal,
   setOpenModal,
-}: CategoryDialogModalProps) => {
+}: LocationDialogModalProps) => {
   const [requestError, setRequestError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const {
@@ -35,16 +34,16 @@ export const CategoryDialogModal = ({
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<CategoryParam>();
+  } = useForm<LocationModel>();
 
-  const { trigger } = useSWRMutation(`/category`, fetcherWithTotal);
+  const { trigger } = useSWRMutation(`/location`, fetcherWithTotal);
 
-  const onSubmit: SubmitHandler<CategoryParam> = async (
-    data: CategoryParam
+  const onSubmit: SubmitHandler<LocationModel> = async (
+    data: LocationModel
   ) => {
     try {
       setIsProcessing(true);
-      const res = await createCategory(data);
+      const res = await createLocation(data);
       trigger();
       setOpenModal(false);
       setValue("name", "");
@@ -62,13 +61,13 @@ export const CategoryDialogModal = ({
           <Box component="form" onSubmit={handleSubmit(onSubmit)}>
             <Box mb={4}>
               <Typography id="modal-modal-title" variant="h6" component="h2" mt={2}>
-                Category Name
+                Location Name
               </Typography>
             </Box>
                 <TextField
-                  label="Category name"
+                  label="Location name"
                   {...register("name", {
-                    required: "category name is required",
+                    required: "location name is required",
                   })}
                   sx={{ width: "100%" }}
                 />

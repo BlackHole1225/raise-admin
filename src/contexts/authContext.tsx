@@ -46,9 +46,9 @@ export const AuthProvider = ({ children }: Props) => {
   // const cookie = getToken();
   useEffect(() => {
     async function getUser() {
-      const { data } = await client.get<BaseResponse<UserModel>>("/");
+      const { data } = await client.get<BaseResponse<UserModel>>("/user");
       if (data) {
-        setUser(new User(data.data));
+        setUser(new User(data.user));
       }
     }
     if (!user && cookie) getUser();

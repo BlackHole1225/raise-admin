@@ -44,3 +44,7 @@ export interface ResGameDataModel {
   game_genres: GenreModel[];
   game_updated_at: string;
 }
+export interface ResKycDataModel {
+  file: string;
+  verify: string;
+}

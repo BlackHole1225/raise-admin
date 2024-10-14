@@ -1,5 +1,5 @@
 import { Games } from "@/features/games/components/index";
-const GamesPage = () => {
+const CampaignPage = () => {
   return (
     <>
       <Games />
@@ -7,4 +7,4 @@ const GamesPage = () => {
   );
 };
 
-export default GamesPage;
+export default CampaignPage;

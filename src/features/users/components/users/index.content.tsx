@@ -57,7 +57,7 @@ export const UserContentComponent = ({
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await removeUser(item.id);
+          const res = await removeUser(item._id);
           trigger();
           Swal.fire("Deleted!", "This User has been deleted.", "success");
         } catch (e) {
@@ -70,7 +70,7 @@ export const UserContentComponent = ({
 
   const _updateActivateStatus = async(item: UserModel, activated: boolean) => {
     try {
-      await updateUserActivateStatus(item.id, !activated);
+      await updateUserActivateStatus(item._id, !activated);
       showSnackbar({
         newMessage: "User status is updated successfully.",
         newSeverity: "success",
@@ -107,8 +107,8 @@ export const UserContentComponent = ({
               <TableCell>#</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Balance</TableCell>
               <TableCell>Activate</TableCell>
+              <TableCell>Role</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -116,14 +116,8 @@ export const UserContentComponent = ({
             {data.map((item, i) => (
               <TableRow hover={true} key={item.id}>
                 <TableCell> {(page - 1) * 10 + (i + 1)}</TableCell>
-                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>
-                <TableCell> <span className="uppercase">
-                    {item.wallet.wallet_currency}
-                  </span>
-                  &nbsp;
-                  {item.wallet.wallet_balance}
-                </TableCell>
                 <TableCell>
                   <Box ml={4}>
                     <Button sx={{ textTransform: 'capitalize' }} onClick={() => { _updateActivateStatus(item, item.is_actived); }}>
@@ -137,6 +131,7 @@ export const UserContentComponent = ({
                     </Button>
                   </Box>
                 </TableCell>
+                <TableCell>{item.role}</TableCell>
                 <TableCell>
                     <IconButton
                       aria-label="delete"

@@ -16,23 +16,23 @@ import {
 import useSWRMutation from "swr/mutation";
 import Swal from "sweetalert2";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { CategoryModel } from "@/features/games/types/games";
-import { CategoryDialogModal } from "@/features/games/components/categories/dialog-modal";
-import { deleteCategory } from "../../api/game";
+import { LocationModel } from "@/features/games/types/games";
+import { LocationDialogModal } from "@/features/games/components/locations/dialog-modal";
+import { deleteLocation } from "../../api/game";
 import { fetcherWithTotal } from "@/libs/axios";
 import { COLORS } from "@/utils/colors";
 import { Add } from "@mui/icons-material";
 
-type CategoryContentProps = {
-  data: Array<CategoryModel>;
+type LocationContentProps = {
+  data: Array<LocationModel>;
 };
 
-export const CategoryContent = ({ data }: CategoryContentProps) => {
+export const LocationContent = ({ data }: LocationContentProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  const { trigger } = useSWRMutation(`/category`, fetcherWithTotal);
+  const { trigger } = useSWRMutation(`/location`, fetcherWithTotal);
 
-  const _delete = (item: CategoryModel) => {
+  const _delete = (item: LocationModel) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -41,7 +41,7 @@ export const CategoryContent = ({ data }: CategoryContentProps) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await deleteCategory(item._id);
+          const res = await deleteLocation(item._id);
           trigger();
           Swal.fire("Deleted!", "This game has been deleted.", "success");
         } catch (e) {
@@ -55,10 +55,10 @@ export const CategoryContent = ({ data }: CategoryContentProps) => {
     <>
       <Box>
         <Box sx={{ display: "flex", justifyContent: "space-between", my: 2 }}>
-          <Typography variant="h5">Category</Typography>
+          <Typography variant="h5">Location</Typography>
           <Box>
             <IconButton
-              aria-label="Add Category"
+              aria-label="Add Location"
               onClick={() => {
                 setOpenModal(true);
               }}
@@ -104,7 +104,7 @@ export const CategoryContent = ({ data }: CategoryContentProps) => {
           </Table>
         </TableContainer>
       </Box>
-      <CategoryDialogModal openModal={openModal} setOpenModal={setOpenModal} />
+      <LocationDialogModal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };
