@@ -1,5 +1,5 @@
 "use client";
-import Image from 'next/image';
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Drawer,
@@ -12,30 +12,33 @@ import {
   Box,
   Collapse,
 } from "@mui/material";
-import { AccountCircle, ExpandLessOutlined, ExpandMoreOutlined } from "@mui/icons-material";
+import {
+  AccountCircle,
+  ExpandLessOutlined,
+  ExpandMoreOutlined,
+} from "@mui/icons-material";
 import Link from "next/link";
 import { theme } from "@/libs/mui";
 import { useAuthContext } from "@/contexts/authContext";
 import { useTranslation } from "@/i18n/client";
 import { LANGUAGE_OPTIONS, NAMESPACE_OPTIONS } from "@/i18n/settings";
-import {createSideBar} from "./menu";
+import { createSideBar } from "./menu";
 
 import React, { useState } from "react";
 import { MenuItemType } from "@/types/model/menu";
-import Logo from "../../../public/images/logo_white.svg";
-
+import Logo from "../../../public/images/logo.png";
 
 const linkStyle = {
   textDecoration: "none",
   width: "100%",
   fontWeight: "bold",
   color: "#fff",
-}
-const SingleLevel = ({item}:{item: MenuItemType}) => {
+};
+const SingleLevel = ({ item }: { item: MenuItemType }) => {
   const pathname = usePathname();
   return (
-    <ListItem >
-      <Link href={item.link?item.link:''} style={linkStyle}>
+    <ListItem>
+      <Link href={item.link ? item.link : ""} style={linkStyle}>
         <ListItemButton selected={item.link === pathname}>
           <ListItemText sx={{ ml: 1 }} primary={item.name} />
         </ListItemButton>
@@ -44,7 +47,7 @@ const SingleLevel = ({item}:{item: MenuItemType}) => {
   );
 };
 
-const MultiLevel = ({item}:{item: MenuItemType}) => {
+const MultiLevel = ({ item }: { item: MenuItemType }) => {
   const { children } = item;
   const [open, setOpen] = useState(false);
 
@@ -55,14 +58,16 @@ const MultiLevel = ({item}:{item: MenuItemType}) => {
 
   return (
     <React.Fragment>
-      <ListItem onClick={handleClick}
-      sx={{
-        "&& .Mui-selected": {
-          backgroundColor: theme.palette.primary.main,
-          fontWeight: "bold",
-        },
-      }}>
-        <Link  href={item.link?item.link:'#'}  style={linkStyle}>
+      <ListItem
+        onClick={handleClick}
+        sx={{
+          "&& .Mui-selected": {
+            backgroundColor: theme.palette.primary.main,
+            fontWeight: "bold",
+          },
+        }}
+      >
+        <Link href={item.link ? item.link : "#"} style={linkStyle}>
           <ListItemButton selected={item.link === pathname}>
             <ListItemText sx={{ ml: 1 }} primary={item.name} />
           </ListItemButton>
@@ -70,7 +75,7 @@ const MultiLevel = ({item}:{item: MenuItemType}) => {
         {open ? <ExpandLessOutlined /> : <ExpandMoreOutlined />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding >
+        <List component="div" disablePadding>
           {children?.map((child, key) => (
             <MenuItem key={key} item={child} />
           ))}
@@ -80,7 +85,7 @@ const MultiLevel = ({item}:{item: MenuItemType}) => {
   );
 };
 
-const MenuItem = ({item}:{item: MenuItemType}) => {
+const MenuItem = ({ item }: { item: MenuItemType }) => {
   const Component = item.children ? MultiLevel : SingleLevel;
   return <Component item={item} />;
 };
@@ -106,12 +111,12 @@ export const SideContent: React.FC<SideContentProps> = ({
         sx={{
           width: isDrawerOpen ? drawerWidth : 0,
           flexShrink: 0,
-          '& .MuiDrawer-paper': {
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
           },
         }}
         open={isDrawerOpen}
-        variant="persistent"  
+        variant="persistent"
         anchor="left"
       >
         <Box
@@ -120,17 +125,25 @@ export const SideContent: React.FC<SideContentProps> = ({
           <Toolbar>
             {/* <Image src={Logo} width={120} height={30} alt='logo'/>
              */}
-             <Typography className="text-white w-full text-center text-2xl font-bold pt-3  italic" variant="h4">Raise</Typography>
+            <Typography
+              className="text-white w-full text-center text-2xl font-bold pt-3 italic flex items-center gap-2"
+              variant="h4"
+            >
+              {" "}
+              <Image src={Logo} alt="Logo" className="h-[35px] w-auto" />
+              <p className="text-[#FAFF7D] text-2xl font-bold">Raise</p>
+            </Typography>
             <Typography
               sx={{
                 color: "white",
                 mx: 1,
               }}
-            >
-            </Typography>
+            ></Typography>
           </Toolbar>
           <List sx={{ color: "#fff" }}>
-            {SIDEBAR_ITEMS.map((item, key) => (<MenuItem key={key} item={item} />))}
+            {SIDEBAR_ITEMS.map((item, key) => (
+              <MenuItem key={key} item={item} />
+            ))}
           </List>
         </Box>{" "}
       </Drawer>

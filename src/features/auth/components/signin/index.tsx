@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
   const showSnackbar = useSnackbar();
 
   useEffect(() => {
-    if (cookie) router.push("/games/");
+    if (cookie) router.push("/users/");
     if (!cookie) setUser(undefined);
   }, [setUser, cookie, router]);
 
@@ -52,7 +52,7 @@ const SignIn: React.FC = () => {
       setToken(res.data.token);
       setTokenCookie(res.data.token, AUTHORIZATION_TOKEN_EXPIRATION);
 
-      router.push("/games/");
+      router.push("/users/");
       showSnackbar({
         newMessage: "Login is success.",
         newSeverity: "success",

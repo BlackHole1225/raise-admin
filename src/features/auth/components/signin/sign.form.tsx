@@ -11,7 +11,7 @@ import {
   Link as MuiLink,
   Stack,
   TextField,
-  CircularProgress
+  CircularProgress,
 } from "@mui/material";
 import {
   FieldErrors,
@@ -23,7 +23,7 @@ import {
 import { LoginModel } from "@/features/auth/types";
 import { useTranslation } from "@/i18n/client";
 import { NAMESPACE_OPTIONS } from "@/i18n/settings";
-import Logo from "../../../../../public/images/logo.svg";
+import Logo from "../../../../../public/images/logo.png";
 import { EmailOutlined, Lock } from "@mui/icons-material";
 
 type LoginFormComponentProps = {
@@ -48,12 +48,17 @@ export const LoginFormComponent: React.FC<LoginFormComponentProps> = ({
   // const { t: loginT } = useTranslation(NAMESPACE_OPTIONS.auth);
   return (
     <>
-     <Box sx={{ display: "flex", justifyContent: "center", mx: 2, }}>
-        <Image
-          src={Logo}
-          alt="Logo"
-          className="h-[50px] lg:h-[87px] w-auto"
-        />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "10px",
+          mx: 2,
+        }}
+      >
+        <Image src={Logo} alt="Logo" className="h-[50px] lg:h-[87px] w-auto" />
+        <p className="text-[#3D4630] text-5xl font-bold">Raise</p>
         <div>
           <Link href="" legacyBehavior passHref>
             <MuiLink color="inherit"> </MuiLink>
@@ -81,9 +86,7 @@ export const LoginFormComponent: React.FC<LoginFormComponentProps> = ({
               helperText={errors?.email?.message}
               sx={{ my: -1 }}
               InputProps={{
-                endAdornment: (
-                  <EmailOutlined sx={{ mx: 1,  }} />
-                ),
+                endAdornment: <EmailOutlined sx={{ mx: 1 }} />,
               }}
             />
             <TextField
@@ -100,7 +103,7 @@ export const LoginFormComponent: React.FC<LoginFormComponentProps> = ({
               })}
               sx={{ my: -1 }}
               InputProps={{
-                endAdornment: <Lock sx={{ mx: 1,}} />,
+                endAdornment: <Lock sx={{ mx: 1 }} />,
               }}
             />
             <FormControlLabel
@@ -119,10 +122,10 @@ export const LoginFormComponent: React.FC<LoginFormComponentProps> = ({
               }}
               size="large"
             >
-              {isLoading && (<CircularProgress size={20} sx={{ color: "#fff", mr: 2 }} />)}
-              <span style={{ fontWeight: "bold" }}>
-                Login
-              </span>
+              {isLoading && (
+                <CircularProgress size={20} sx={{ color: "#fff", mr: 2 }} />
+              )}
+              <span style={{ fontWeight: "bold" }}>Login</span>
             </Button>
           </Stack>
         </form>
