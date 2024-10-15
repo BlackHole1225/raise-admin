@@ -73,9 +73,9 @@ const EditGameFormContent = ({ gameData }: EditContentPropsType) => {
       setIsLoading(false);
     }
   };
-  const checkKyc = async (id: string, state:string) => {
+  const checkKyc = async (id: string, state:string, file:string) => {
     try{
-      const res = await checkKycApi(id, state);
+      const res = await checkKycApi(id, state,file);
       showSnackbar({
         newMessage: 'Kyc was ' + state + ' successfully',
         newSeverity: 'success'
@@ -145,7 +145,7 @@ const EditGameFormContent = ({ gameData }: EditContentPropsType) => {
                 <Button
                   variant="contained"
                   onClick={() => {
-                    checkKyc(gameData._id, 'verified');
+                    checkKyc(gameData._id, 'verified',gameData.kyc.file);
                   }}
                   color="primary"
                   disabled={isLoading}
@@ -157,7 +157,7 @@ const EditGameFormContent = ({ gameData }: EditContentPropsType) => {
                   variant="contained"
                   color="secondary"
                   onClick={() => {
-                    checkKyc(gameData._id, 'denied');
+                    checkKyc(gameData._id, 'denied',gameData.kyc.file);
                   }}
                   disabled={isLoading}
                   sx={{ mt: 2 }}

@@ -33,6 +33,7 @@ export const AppBarContent: React.FC<AppBarContentProps> = ({
 
   const logOut = () => {
     deleteTokenCookie();
+    window.location.href = "/login";
     handleClose();
   }
 

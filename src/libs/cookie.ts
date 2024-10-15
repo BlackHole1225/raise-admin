@@ -25,5 +25,6 @@ export const setTokenCookie = (
 };
 
 export const deleteTokenCookie = () => {
+  localStorage.removeItem(AUTHORIZATION_TOKEN_KEY);
   return Cookies.remove(AUTHORIZATION_TOKEN_KEY);
 };

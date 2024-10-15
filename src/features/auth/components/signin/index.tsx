@@ -30,7 +30,6 @@ const SignIn: React.FC = () => {
   const showSnackbar = useSnackbar();
 
   useEffect(() => {
-    if (cookie) router.push("/users/");
     if (!cookie) setUser(undefined);
   }, [setUser, cookie, router]);
 
@@ -51,17 +50,16 @@ const SignIn: React.FC = () => {
       setUser(user);
       setToken(res.data.token);
       setTokenCookie(res.data.token, AUTHORIZATION_TOKEN_EXPIRATION);
-
-      router.push("/users/");
+      window.location.href = "/users/";
       showSnackbar({
         newMessage: "Login is success.",
         newSeverity: "success",
       });
     } catch (error: any) {
-      // showSnackbar({
-      //   newMessage: error.response.data.message,
-      //   newSeverity: "error",
-      // });
+      showSnackbar({
+        newMessage: error.response.data.message,
+        newSeverity: "error",
+      });
       console.log(error);
     } finally {
       setIsLoading(false);

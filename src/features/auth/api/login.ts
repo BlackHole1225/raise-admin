@@ -14,7 +14,7 @@ export const loginWithEmailAndPassword = async (
   data: LoginModel
 ): Promise<{ data: BaseResponse<UserModel, TokenModel> }> => {
   const response = await client.post<BaseResponse<UserModel, TokenModel>>(
-    "/login",
+    "/admin/login",
     {...data}
   );
   return { data: response.data };
