@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Table } from "flowbite-react";
 import Swal from "sweetalert2";
 import useSWRMutation from "swr/mutation";
-import { CategoryModel } from "@/features/games/types/games";
-import { deleteCategory } from "@/features/games/api/game";
-import { CategoryDialogModal } from "@/features/games/components/categories/dialog-modal";
+import { CategoryModel } from "@/features/campaigns/types/games";
+import { deleteCategory } from "@/features/campaigns/api/game";
+import { CategoryDialogModal } from "@/features/campaigns/components/categories/dialog-modal";
 import { fetcherWithTotal } from "@/libs/axios";
 
 type CategoryContentProps = {

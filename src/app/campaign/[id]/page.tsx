@@ -1,5 +1,5 @@
 "use client"
-import KycForm from "@/features/games/components/kycform";
+import KycForm from "@/features/campaigns/components/kycform";
 
 type EditProps = {
   params: {id: number};

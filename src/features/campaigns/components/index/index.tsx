@@ -4,7 +4,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import { fetcherWithTotal } from "@/libs/axios";
 import { BaseResponse, PaginationMetaModel } from "@/types/base";
-import { CampaignsContent } from "@/features/games/components/index/index.content";
+import { CampaignsContent } from "@/features/campaigns/components/index/index.content";
 import { deleteGame } from "../../api/game";
 import { useSnackbar } from "@/contexts/snackbarContext";
 import useSWRMutation from "swr/mutation";

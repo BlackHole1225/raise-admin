@@ -1,4 +1,4 @@
-import { Campaigns } from "@/features/games/components/index";
+import { Campaigns } from "@/features/campaigns/components/index";
 const CampaignPage = () => {
   return (
     <>

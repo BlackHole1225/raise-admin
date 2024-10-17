@@ -4,7 +4,7 @@ import {
   CampaignModel,
   LocationModel,
   QueryParam,
-} from "@/features/games/types/games";
+} from "@/features/campaigns/types/games";
 import { client } from "@/libs/axios";
 import { BaseResponse, PaginationMetaModel,  ResKycDataModel } from "@/types/base";
 

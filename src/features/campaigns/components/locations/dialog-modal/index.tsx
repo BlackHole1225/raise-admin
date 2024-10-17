@@ -13,8 +13,8 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 // import { loginWithEmailAndPassword } from "@/features/games/api/game";
 import useSWRMutation from "swr/mutation";
-import { LocationModel } from "@/features/games/types/games";
-import { createLocation } from "@/features/games/api/game";
+import { LocationModel } from "@/features/campaigns/types/games";
+import { createLocation } from "@/features/campaigns/api/game";
 import { fetcherWithTotal } from "@/libs/axios";
 import { COLORS } from "@/utils/colors";
 import { ModalStyle } from "@/utils/constants";

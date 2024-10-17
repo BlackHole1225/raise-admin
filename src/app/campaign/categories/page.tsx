@@ -1,4 +1,4 @@
-import { CampaignCategory } from "@/features/games/components/categories";
+import { CampaignCategory } from "@/features/campaigns/components/categories";
 const CampaignCategoriesPage = () => {
   return (
     <>

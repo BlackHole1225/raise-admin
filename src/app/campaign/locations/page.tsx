@@ -1,4 +1,4 @@
-import { CampaignLocations } from "@/features/games/components/locations";
+import { CampaignLocations } from "@/features/campaigns/components/locations";
 const CampaignLocationsPage = () => {
   return (
     <>

@@ -1,4 +1,4 @@
-import { CategoryModel, GenreModel } from "@/features/games/types/games";
+import { CategoryModel, GenreModel } from "@/features/campaigns/types/games";
 
 export interface BaseResponse<D = undefined, M = undefined> {
   status: number;

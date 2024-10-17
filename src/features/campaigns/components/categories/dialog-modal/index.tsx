@@ -14,8 +14,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 // import { loginWithEmailAndPassword } from "@/features/games/api/game";
 import useSWRMutation from "swr/mutation";
 
-import { CategoryParam } from "@/features/games/types/games";
-import { createCategory } from "@/features/games/api/game";
+import { CategoryParam } from "@/features/campaigns/types/games";
+import { createCategory } from "@/features/campaigns/api/game";
 import { fetcherWithTotal } from "@/libs/axios";
 import { COLORS } from "@/utils/colors";
 import { ModalStyle } from "@/utils/constants";

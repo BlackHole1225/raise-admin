@@ -1,7 +1,7 @@
 "use client";
 import useSWR from "swr";
-import { CategoryContent } from "@/features/games/components/categories/index.content";
-import { CategoryModel, LocationModel } from "@/features/games/types/games";
+import { CategoryContent } from "@/features/campaigns/components/categories/index.content";
+import { CategoryModel, LocationModel } from "@/features/campaigns/types/games";
 import { Layout } from "@/features/layout/components";
 import { fetcherWithTotal } from "@/libs/axios";
 import { BaseResponse, PaginationMetaModel } from "@/types/base";
