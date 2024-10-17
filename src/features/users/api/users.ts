@@ -1,5 +1,5 @@
 import { QueryParam } from "@/features/users/types";
-import { User, UserModel } from "@/features/auth/types";
+import {  UserModel } from "@/features/auth/types";
 import { client } from "@/libs/axios";
 import { BaseResponse, PaginationMetaModel } from "@/types/base";
 
@@ -20,7 +20,6 @@ export const getUsers = async (
 export const removeUser = async (
   id: number
 ): Promise<{ data: BaseResponse }> => {
-  // return this.http.delete(`/users/${id}`);
   const response = client.delete(`/users/${id}`);
   return response;
 }

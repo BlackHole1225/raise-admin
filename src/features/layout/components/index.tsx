@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useAuthContext } from "@/contexts/authContext";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 
@@ -13,11 +12,9 @@ export const Layout = ({
   children: React.ReactNode;
   breadcrumb: breadcrumbProps;
 }>) => {
-  const { user } = useAuthContext();
   return (
     <>
       <Header />
-      {/* <Breadcrumbs item={breadcrumb} /> */}
       <div className="flex items-start">
         <Sidebar />
         <main className="relative h-full w-full overflow-y-auto dark:bg-gray-900 lg:ml-64 lg:mt-[70px] bg-[#eef2f6] h-[calc(100vh-68px)] ">

@@ -56,20 +56,12 @@ const Header: FC = function () {
                   >
                     <ul className="">
                       <div className="space-y-4 p-4">
-                        {/* <li>
-                          <a
-                            href={`/user-profile`}
-                            className="hover:text-primary-600 dark:hover:text-primary-500 hover:cursor-pointer"
-                          >
-                            profile
-                          </a>
-                        </li> */}
                         <li>
                           <span
                             className="hover:text-primary-600 dark:hover:text-primary-500 hover:cursor-pointer"
                             onClick={signOut}
                           >
-                            sign out
+                            sign outs
                           </span>
                         </li>
                       </div>

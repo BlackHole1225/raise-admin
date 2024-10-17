@@ -8,7 +8,7 @@ import { BaseResponse, PaginationMetaModel } from "@/types/base";
 import { LocationContent } from "./index.content";
 import useSWRMutation from "swr/mutation";
 
-export const GameLocation = () => {
+export const CampaignLocations = () => {
   const { data: locationData, error } = useSWR<
     BaseResponse<LocationModel[], PaginationMetaModel>
   >(`/location`, fetcherWithTotal);

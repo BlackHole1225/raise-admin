@@ -5,7 +5,6 @@ import { Box } from "@mui/material";
 import { AppBar } from "@/components/AppBar";
 import { SideMenu } from "@/components/Sidebar";
 import { useState } from "react";
-import {useAuthContext} from "@/contexts/authContext"
 
 type LayoutWrapperContentProps = {
   children: React.ReactNode;
@@ -17,7 +16,6 @@ export const LayoutWrapperContent: React.FC<LayoutWrapperContentProps> = ({
   drawerWidth,
 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
-  const {user} =useAuthContext();
   return (
     <Box sx={{ display: "flex", height: "100vh" }}>
       <AppBar

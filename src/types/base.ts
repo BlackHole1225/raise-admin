@@ -48,3 +48,10 @@ export interface ResKycDataModel {
   file: string;
   verify: string;
 }
+export interface ResCampaignDataModel {
+  _id: string;
+  name: string;
+  description: string;
+  image: string;
+  updated_at: string;
+}

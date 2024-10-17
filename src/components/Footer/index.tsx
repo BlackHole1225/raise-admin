@@ -1,13 +1,7 @@
 import {
   Footer,
   FooterCopyright,
-  FooterLink,
-  FooterLinkGroup,
-  FooterTitle,
 } from "flowbite-react";
-import { BsTiktok } from "react-icons/bs";
-import { RiTwitterXLine } from "react-icons/ri";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
 import {} from "react-icons/fa";
 export function FooterComponent() {
   return (

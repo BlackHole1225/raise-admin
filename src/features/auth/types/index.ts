@@ -73,72 +73,8 @@ export type ResetPasswordParam = {
   email: string;
 };
 
-export interface TeamLimitsModel {
-  size_uuid: string;
-  first_team_size: number;
-  second_team_size: number;
-  memo: string;
-}
-export interface BetsModel {
-  bet_uuid: string;
-  bet_value: number;
-}
-export interface RoomModel {
-  room_uuid: string;
-  room_status: RoomStatus;
-  is_joined: boolean;
-  game: GameModel;
-  bet: BetsModel;
-  team_size: TeamLimitsModel;
-  host: UserModel;
-  teams: RoomTeamModel[];
-  me: PlayerModel | null;
-  winner: RoomTeamModel;
-  match_duration?: number;
-}
 
-export interface GameModel {
-  game_name: ReactI18NextChildren | Iterable<ReactI18NextChildren>;
-  id: number;
-  uuid: string;
-  slug: string;
-  name: string;
-  description: string;
-  cover: string;
-  is_active: boolean;
-  categories: GameCategory[];
-  created_at: string;
-}
 
-export interface RoomTeamModel {
-  team: TeamModel;
-  players: PlayerModel[];
-  is_full: boolean;
-  is_winner: boolean;
-  room_id?: number;
-}
-export interface PlayerModel {
-  player_uuid: string;
-  player_status: PlayerStatusType;
-  user: UserModel;
-  room_team?: RoomTeamModel;
-}
-export interface TeamModel {
-  team_uuid: string;
-  team_name: string;
-}
-
-export type RoomStatus =
-  | 'open'
-  | 'players_joined'
-  | 'players_ready'
-  | 'in_game'
-  | 'winner_selection'
-  | 'winner_selected'
-  | 'finished'
-  | 'closed'
-  | 'system_closed'
-  | 'dispute';
 
 export type GameCategory =
   | 'slider'

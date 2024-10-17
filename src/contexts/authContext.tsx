@@ -12,16 +12,7 @@ import {
 import { User, UserModel } from "@/features/auth/types";
 import { client } from "@/libs/axios";
 import { getTokenCookie } from "@/libs/cookie";
-import { getToken } from "@/libs/localStorage";
 import { BaseResponse } from "@/types/base";
-
-// type User = {
-//   token: string;
-//   email: string;
-//   // role: string;
-// };
-
-// type User = UserModel;
 
 export type UserState = User | null | undefined;
 export type AuthContextType = {

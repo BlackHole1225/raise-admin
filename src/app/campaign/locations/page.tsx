@@ -1,10 +1,10 @@
-import { GameLocation } from "@/features/games/components/locations";
-const LocationPage = () => {
+import { CampaignLocations } from "@/features/games/components/locations";
+const CampaignLocationsPage = () => {
   return (
     <>
-      <GameLocation />
+      <CampaignLocations />
     </>
   );
 };
 
-export default LocationPage;
+export default CampaignLocationsPage;

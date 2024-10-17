@@ -9,19 +9,17 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Typography,
   IconButton,
 } from "@mui/material";
-import { GameModel } from "../../types/games";
+import { CampaignModel } from "../../types/games";
 import Link from "next/link";
 import { COLORS } from "@/utils/colors";
-import { Add } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { deleteGame } from "../../api/game";
+import Swal from "sweetalert2";
 
-type GamesContentProps = {
-  data: Array<GameModel>;
+type CampaignsContentProps = {
+  data: Array<CampaignModel>;
   count: number;
   page: number;
   perPage: number;
@@ -30,15 +28,32 @@ type GamesContentProps = {
   onDelete: (_gameId: string) => void;
 };
 
-export const GamesContent = ({
+export const CampaignsContent = ({
   data,
   count,
   page,
   perPage,
   onChangePagination,
-  onChangePerPage,
   onDelete,
-}: GamesContentProps) => {
+}: CampaignsContentProps) => {
+  const _delete = (item: CampaignModel) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await onDelete(item._id);
+          Swal.fire("Deleted!", "This game has been deleted.", "success");
+        } catch (e) {
+          Swal.fire("Oops...", "Something went wrong", "error");
+        } finally {
+        }
+      }
+    });
+  };
   return (
     <>
       {" "}
@@ -46,7 +61,7 @@ export const GamesContent = ({
         <Box sx={{ display: "flex", justifyContent: "space-between", my: 2 }}>
           <Typography variant="h5" color={"black"}>Campaigns</Typography>
           <Box>
-           
+
           </Box>
         </Box>
         <TableContainer>
@@ -75,9 +90,9 @@ export const GamesContent = ({
                       aria-label="delete"
                       sx={{ color: COLORS.red }}
                       size="small"
-                      onClick={() => onDelete(item._id)}
+                      onClick={() => _delete(item)}
                     >
-                      <DeleteIcon fontSize="small"/>
+                      <DeleteIcon fontSize="small" />
                     </IconButton>
                   </TableCell>
                 </TableRow>

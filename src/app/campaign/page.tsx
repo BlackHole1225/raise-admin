@@ -1,8 +1,8 @@
-import { Games } from "@/features/games/components/index";
+import { Campaigns } from "@/features/games/components/index";
 const CampaignPage = () => {
   return (
     <>
-      <Games />
+      <Campaigns />
     </>
   );
 };

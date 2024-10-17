@@ -1,5 +1,5 @@
 "use client"
-import EditGameForm from "@/features/games/components/editgame";
+import KycForm from "@/features/games/components/kycform";
 
 type EditProps = {
   params: {id: number};
@@ -10,7 +10,7 @@ const GameEdit: React.FC<EditProps> = ({
 }) => {
   return(
     <>
-      <EditGameForm
+        <KycForm
         gameId={params.id.toString()}
       />
     </>

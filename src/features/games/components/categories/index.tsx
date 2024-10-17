@@ -6,7 +6,7 @@ import { Layout } from "@/features/layout/components";
 import { fetcherWithTotal } from "@/libs/axios";
 import { BaseResponse, PaginationMetaModel } from "@/types/base";
 
-export const GameCategory = () => {
+export const CampaignCategory = () => {
   const { data: categoryData, error } = useSWR<
     BaseResponse<CategoryModel[], PaginationMetaModel>
   >(`/category`, fetcherWithTotal);

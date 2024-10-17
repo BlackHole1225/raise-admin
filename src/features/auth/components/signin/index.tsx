@@ -23,7 +23,6 @@ import { useSnackbar } from "@/contexts/snackbarContext";
 const SignIn: React.FC = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const cookie = getTokenCookie();
   const cookie = getToken();
   const [showPassword, setShowPassword] = useState(false);
   const { setUser } = useSetAuthContext();

@@ -1,6 +1,5 @@
 "use client";
-import { AppBar, colors, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
-import Link from "next/link";
+import { AppBar,  Menu, MenuItem, Toolbar } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useAuthContext } from "@/contexts/authContext";
@@ -58,18 +57,6 @@ export const AppBarContent: React.FC<AppBarContentProps> = ({
           >
             <MenuIcon />
           </IconButton>
-          {/* <Link className={link} href={"/"} passHref> */}
-          {/* <Image
-              width={50}
-              height={20}
-              gap={1}
-              position="center"
-              src={"/logo.png"}
-              alt={"logo"}
-            ></Image> */}
-          {/* </Link> */}
-          
-         {/* {user && ( */}
             <div>
             <IconButton
                 size="large"
@@ -97,7 +84,6 @@ export const AppBarContent: React.FC<AppBarContentProps> = ({
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={logOut}>Log out</MenuItem>
               </Menu>
             </div>

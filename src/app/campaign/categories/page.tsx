@@ -1,10 +1,10 @@
-import { GameCategory } from "@/features/games/components/categories";
-const GamesCategoriesPage = () => {
+import { CampaignCategory } from "@/features/games/components/categories";
+const CampaignCategoriesPage = () => {
   return (
     <>
-      <GameCategory />
+      <CampaignCategory />
     </>
   );
 };
 
-export default GamesCategoriesPage;
+export default CampaignCategoriesPage;

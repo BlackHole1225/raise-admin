@@ -21,8 +21,6 @@ import {
 } from "react-hook-form";
 
 import { LoginModel } from "@/features/auth/types";
-import { useTranslation } from "@/i18n/client";
-import { NAMESPACE_OPTIONS } from "@/i18n/settings";
 import Logo from "../../../../../public/images/logo.png";
 import { EmailOutlined, Lock } from "@mui/icons-material";
 
@@ -45,7 +43,6 @@ export const LoginFormComponent: React.FC<LoginFormComponentProps> = ({
   register,
   isLoading,
 }) => {
-  // const { t: loginT } = useTranslation(NAMESPACE_OPTIONS.auth);
   return (
     <>
       <Box
